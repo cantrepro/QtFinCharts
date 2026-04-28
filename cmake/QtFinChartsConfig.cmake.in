@@ -1,0 +1,21 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+find_dependency(Qt6 @QTFINCHARTS_QT_MIN_VERSION@ COMPONENTS Core Gui Qml Quick)
+
+include("${CMAKE_CURRENT_LIST_DIR}/QtFinChartsTargets.cmake")
+
+if(TARGET QtFinCharts::QtFinCharts AND NOT TARGET QtFinCharts)
+    add_library(QtFinCharts ALIAS QtFinCharts::QtFinCharts)
+endif()
+
+if(TARGET QtFinCharts::QtFinChartsplugin AND NOT TARGET QtFinChartsplugin)
+    add_library(QtFinChartsplugin ALIAS QtFinCharts::QtFinChartsplugin)
+endif()
+
+if(TARGET QtFinCharts::QtFinChartsplugin_init AND NOT TARGET QtFinChartsplugin_init)
+    add_library(QtFinChartsplugin_init ALIAS QtFinCharts::QtFinChartsplugin_init)
+endif()
+
+check_required_components(QtFinCharts)

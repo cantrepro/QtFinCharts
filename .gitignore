@@ -1,0 +1,15 @@
+build/
+build-*/
+install/
+
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+
+*.user
+*.autosave
+*.swp
+.DS_Store
+
+.cache/
